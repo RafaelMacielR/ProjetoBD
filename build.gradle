@@ -1,0 +1,26 @@
+apply plugin: 'java'
+//Permite que será gerado o bin
+apply plugin: 'application'
+//Especifica para a Application qual é a main class
+mainClassName = 'projetobd.ProjetoBD'
+//Informa onde será buscado as dependências
+repositories {
+    mavenCentral()
+}
+//O Gradle buscará os arquivos no diretório: src/main/java
+//Portanto, precisamos especificar os diretórios
+sourceSets{
+	main.java.srcDir "src"
+}
+//Altera o Main-Class no manifest.xml
+jar {
+	manifest {
+		attributes(
+			'Main-Class': 'projetobd.ProjetoBD'
+		)
+	}
+}
+//Adiciona as dependências
+dependencies {
+
+}
